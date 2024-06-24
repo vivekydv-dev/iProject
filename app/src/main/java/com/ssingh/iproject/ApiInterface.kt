@@ -3,8 +3,9 @@ package com.ssingh.iproject
 import com.ssingh.iproject.model.ApiData
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ApiInterface {
-    @GET("top-headlines?sources=techcrunch&apiKey=204b409bd3f74b2a902fd73cb750a49b")
-    fun getArticle(): Call<ApiData>
+    @GET("top-headlines")
+    fun getArticle(@Query("sources") sources: String, @Query("apiKey") apiKey: String): Call<ApiData>
 }

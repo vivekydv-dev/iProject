@@ -40,7 +40,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getArticleData() {
-        val call = apiInterface.getArticle()
+        val call = apiInterface.getArticle(
+            "techcrunch", "204b409bd3f74b2a902fd73cb750a49b"
+        )
         call.enqueue(object : Callback<ApiData?> {
             override fun onResponse(p0: Call<ApiData?>, response: Response<ApiData?>) {
                 db.articleDao.deleteAllArticle()
